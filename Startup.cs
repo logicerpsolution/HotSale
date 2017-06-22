@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using CRUDApplication.DBModel;
-using Microsoft.EntityFrameworkCore;
+using Sales.Data.Interfaces;
+using Sales.Data.Repositories;
+using SalesApp.Model;
 
-namespace CRUDApplication
+namespace SalesApp
 {
     public class Startup
     {
@@ -40,6 +38,7 @@ namespace CRUDApplication
             });
             services.AddMvc();
             services.AddDbContext<SaleDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddScoped<ISale, Sale>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -67,7 +66,7 @@ namespace CRUDApplication
                     name: "default",
                     template: "{controller=Sale}/{action=Index}/{id?}");
             });
-            DbInitializer.Initialize(context);
+           
         }
     }
 }
