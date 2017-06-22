@@ -27,11 +27,11 @@ namespace SalesApp.Controllers
         }
 
         [HttpGet(Name = "GetSales")]
-        public  IActionResult GetSales()
+        public IActionResult GetSales()
         {
             Task<IEnumerable<SaleMaster>> _TsaleMaster = this.ISale.GetSalesAsync();
-             return new OkObjectResult(Result);
+            return new OkObjectResult(Task.Run(async () => await _TsaleMaster).Result);
         }
-        
+         
     }
 }

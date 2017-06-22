@@ -41,7 +41,7 @@
         public async Task<IEnumerable<SaleMaster>> GetSalesAsync()
         {
             IQueryable<SaleMaster> _saleMaster = this.context.SaleMasters
-                                                .Include(product => product.ProductSaleJoins.Select(p => p.ProductMaster))
+                                                .Include(product => product.ProductSaleJoins)
                                                 .Where(s => s.IsActive == true);
 
 
