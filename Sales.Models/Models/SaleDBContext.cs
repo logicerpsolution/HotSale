@@ -11,7 +11,7 @@ namespace SalesApp.Model
         public SaleDBContext(DbContextOptions<SaleDBContext> options) : base(options)
         {
             if (!this.Database.EnsureCreated()) {
-              new  DbInitializer(this).InitilizeProducts();
+              //new  DbInitializer(this).InitilizeProducts();
             }
              
             

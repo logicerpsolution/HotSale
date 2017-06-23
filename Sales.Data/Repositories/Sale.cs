@@ -18,9 +18,18 @@
             this.context = context;
         }
 
-        public Task<int> AddAsync(SaleMaster vehicle)
+        public async Task<SaleMaster> AddAsync(SaleMaster sale)
         {
-            throw new NotImplementedException();
+            try
+            {
+                this.context.SaleMasters.Add(sale);
+                await (this.context.SaveChangesAsync());
+                return sale;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         public Task DeleteAsync(int SaleMasterId)
@@ -28,7 +37,7 @@
             throw new NotImplementedException();
         }
 
-        public  Task<SaleMaster> GetSaleAsync(int SaleMasterId)
+        public Task<SaleMaster> GetSaleAsync(int SaleMasterId)
         {
             throw new NotImplementedException();
         }
@@ -40,12 +49,35 @@
 
         public async Task<IEnumerable<SaleMaster>> GetSalesAsync()
         {
-            IQueryable<SaleMaster> _saleMaster = this.context.SaleMasters
-                                                .Include(product => product.ProductSaleJoins)
-                                                .Where(s => s.IsActive == true);
+            try
+            {
+                IQueryable<SaleMaster> _saleMaster = this.context.SaleMasters
+                                               .Include(product => product.ProductSaleJoins)
+                                               .Where(s => s.IsActive == true);
+                return _saleMaster.ToList();
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
 
 
-            return _saleMaster.ToList();
+        }
+
+        public SaleMaster ActiveInactiveSale(SaleMaster sale)
+        {
+            try
+            {
+                SaleMaster sm = this.context.SaleMasters.Where(p => p.SaleId == sale.SaleId).FirstOrDefault();
+                sm.IsActive = sale.IsActive;
+                this.context.SaveChanges();
+                return sm;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
     }
 }

@@ -13,8 +13,11 @@ namespace SalesApp.Model
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int SaleId { get; set; }
         public string Title { get; set; }
+        public string ImageUrl { get; set; }
         public string Description { get; set; }
         public Boolean IsActive { get; set; }
         public ICollection<ProductSaleJoin> ProductSaleJoins { get; set; }
     }
+
+   
 }

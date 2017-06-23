@@ -16,7 +16,7 @@ namespace SalesApp.Model
         public int SaleId { get; set; }
         [ForeignKey("ProductMaster")]
         public int ProductId { get; set; }
-        public  ProductMaster ProductMaster { get; set; }
+        public ProductMaster ProductMaster { get; set; }
         public SaleMaster SaleMaster { get; set; }
     }
 }
