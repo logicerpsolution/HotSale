@@ -5,7 +5,8 @@
     using System.Collections.Generic;
     using SalesApp.Model;
     using System.Threading.Tasks;
-    using Sales.Data.Interfaces;
+    using Sales.Business.Interfaces;
+    using Sales.Data;
     using Microsoft.EntityFrameworkCore;
 
     public class Sale : ISale

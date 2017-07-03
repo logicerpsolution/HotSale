@@ -2,9 +2,9 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp1.0</TargetFramework>
     <PreserveCompilationContext>true</PreserveCompilationContext>
-    <AssemblyName>CRUDApplication</AssemblyName>
+    <AssemblyName>SalesApi</AssemblyName>
     <OutputType>Exe</OutputType>
-    <PackageId>CRUDApplication</PackageId>
+    <PackageId>SalesApi</PackageId>
     <PackageTargetFallback>$(PackageTargetFallback);dotnet5.6;portable-net45+win8</PackageTargetFallback>
   </PropertyGroup>
   <ItemGroup>
@@ -39,6 +39,8 @@
     <DotNetCliToolReference Include="BundlerMinifier.Core" Version="2.2.301" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Sales.Data\Sales.Data.csproj" />
+    <ProjectReference Include="..\Sales.Business\Sales.Data.csproj" />
+    <ProjectReference Include="..\Sales.Data\Sales.Business.csproj" />
+    <ProjectReference Include="..\Sales.Models\Sales.Models.csproj" />
   </ItemGroup>
 </Project>

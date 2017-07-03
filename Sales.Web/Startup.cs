@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Sales.Data.Interfaces;
+using Sales.Business.Interfaces;
+using Sales.Data;
 using Sales.Data.Repositories;
-using SalesApp.Model;
 
 namespace SalesApp
 {

@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Cors;
 
 namespace SalesApp.Controllers
 {
-    using Sales.Data.Interfaces;
+    using Sales.Business.Interfaces;
     using SalesApp.Model;
     using System.Threading.Tasks;
     [Route("api/[controller]/[action]")]

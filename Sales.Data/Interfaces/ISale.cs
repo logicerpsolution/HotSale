@@ -1,5 +1,5 @@
 ﻿
-namespace Sales.Data.Interfaces
+namespace Sales.Business.Interfaces
 {
     using System.Threading.Tasks;
     using SalesApp.Model;
